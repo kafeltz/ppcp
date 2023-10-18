@@ -9,4 +9,14 @@ CREATE TABLE IF NOT EXISTS imports (
    updated_at timestamp
 );
 
+CREATE TABLE IF NOT EXISTS stocks (
+   id serial PRIMARY KEY,
+   fabrica varchar(255),
+   gramatura varchar(255),
+   formato varchar(255),
+   disponivel_em timestamp default now(), -- data de chegada
+   created_at timestamp NOT NULL,
+   updated_at timestamp
+);
+
 create unique index imports_unique ON imports("filename", cola, colb, colc, cold);
